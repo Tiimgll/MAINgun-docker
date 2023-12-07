@@ -12,7 +12,6 @@
 
 FROM python:3.11.5
 
-# создание директории проекта
 ENV APP_HOME /app
 WORKDIR $APP_HOME
 COPY . .
@@ -25,11 +24,8 @@ RUN apt install -y libgl1-mesa-dev
 RUN pip install opencv-python==4.6.0.66
 RUN pip install --upgrade ultralytics
 
-# назначение порта для проброски
 EXPOSE 8501
 
-# выполнение проверки localhost
 HEALTHCHECK CMD curl --fail http://localhost:8501/_stcore/health
 
-# запуск контейнера в изолированной среде
 ENTRYPOINT ["streamlit", "run", "app.py", "--server.port=8501", "--server.address=0.0.0.0"]
