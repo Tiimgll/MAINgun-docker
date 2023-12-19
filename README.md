@@ -2,7 +2,7 @@
 
 1. Создать виртуальное окружение, включая библиотеки из файла requirements.txt.
 
-2. Для запуска приложения streamlit run app.py
+2. Для запуска приложения streamlit run app.py --server.port=8501 --server.address=0.0.0.0
 
 Docker
 
